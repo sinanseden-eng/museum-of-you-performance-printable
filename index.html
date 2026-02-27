@@ -13,7 +13,7 @@
             line-height: 1.5;
             max-width: 210mm; /* A4 Width */
             margin: 0 auto;
-            padding: 15mm;
+            padding: 10mm;
         }
 
         h1, h2, h3, .serif {
@@ -26,12 +26,12 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 4px double #000;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
         }
 
         .header-logo {
-            width: 150px;
+            width: 160px;
             height: auto;
         }
 
@@ -40,14 +40,14 @@
         }
 
         .header-text h1 {
-            font-size: 28px;
+            font-size: 26px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin: 0 0 5px 0;
+            margin: 0 0 4px 0;
         }
 
         .header-text .subtitle {
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #555;
@@ -59,7 +59,7 @@
             font-size: 14px;
             color: #333;
             text-align: center;
-            margin: 15px 0;
+            margin: 10px 0 20px 0;
         }
 
         /* Student Info Box */
@@ -96,7 +96,7 @@
         }
         
         .vocab-box h4 {
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             text-transform: uppercase;
             font-size: 14px;
         }
@@ -124,26 +124,29 @@
         /* Step Sections (Brochure Panels) */
         .panel-section {
             margin-bottom: 20px;
-            padding: 15px;
             border: 1px solid #000;
-            position: relative;
+            border-radius: 4px;
+            overflow: hidden; /* Contains the header cleanly */
         }
 
         .panel-header {
             background-color: #000;
             color: #fff;
             display: inline-block;
-            padding: 5px 10px;
+            padding: 5px 12px;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 12px;
-            position: absolute;
-            top: -12px;
-            left: 10px;
+            border-bottom-right-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .panel-content {
+            padding: 0 15px 15px 15px;
         }
 
         .panel-title {
-            margin-top: 5px;
+            margin-top: 0;
             font-size: 16px;
             margin-bottom: 10px;
         }
@@ -151,17 +154,21 @@
         .writing-lines {
             width: 100%;
             border-bottom: 1px dotted #999;
-            height: 25px;
+            height: 22px;
             margin-bottom: 5px;
+        }
+
+        /* Artifact Flex Layout (Replaces buggy floats) */
+        .artifact-layout {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
         }
 
         .drawing-box {
             width: 100px;
             height: 100px;
             border: 1px dashed #ccc;
-            float: left;
-            margin-right: 15px;
-            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -169,12 +176,12 @@
             font-size: 10px;
             text-align: center;
             background-color: #fafafa;
+            flex-shrink: 0;
+            margin-top: 5px;
         }
 
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
+        .artifact-text {
+            flex-grow: 1;
         }
 
         /* Callouts / Examples */
@@ -182,14 +189,14 @@
             border: 1px solid #666;
             padding: 10px;
             background-color: #eee;
-            margin-top: 10px;
+            margin-bottom: 15px;
             font-size: 12px;
         }
 
         .grammar-warning {
             font-weight: bold;
             display: block;
-            margin-top: 10px;
+            margin-bottom: 10px;
             font-size: 12px;
             color: #333;
         }
@@ -199,13 +206,14 @@
             border: 3px solid #000;
             text-align: center;
             padding: 15px;
-            margin-top: 30px;
+            margin-top: 25px;
             background-color: #f0f0f0;
         }
 
         .deliverable-box h3 {
             margin-top: 0;
             text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
         /* Rubric Styles */
@@ -270,7 +278,6 @@
             font-size: 24px;
         }
 
-        /* Deduction Styles for Grading */
         .deduction-box {
             margin-top: 10px;
             background-color: #fafafa;
@@ -301,9 +308,21 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .page-break { page-break-before: always; }
+            .panel-header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page-break { 
+                page-break-before: always; 
+                break-before: page;
+                height: 0;
+                margin: 0;
+                padding: 0;
+                border: none;
+            }
             .panel-section { page-break-inside: avoid; }
             .rubric-container { page-break-inside: avoid; }
+            p, h2, h3, li { orphans: 3; widows: 3; }
         }
     </style>
 </head>
@@ -311,7 +330,7 @@
 
     <!-- HEADER -->
     <div class="header">
-        <!-- Darüşşafaka Logo Placeholder -->
+        <!-- Darüşşafaka Logo -->
         <img src="darussafaka_logo.png" alt="Darüşşafaka Eğitim Kurumları" class="header-logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x80/ffffff/006633?text=Darüşşafaka+Logo';">
         
         <div class="header-text">
@@ -330,8 +349,9 @@
     <!-- THE COMMISSION -->
     <div class="brief-box">
         <h3>The Commission</h3>
-        <p>The Global Heritage Foundation is funding a brand-new museum dedicated entirely to <strong>your life, memories, and values</strong>. Your task is to draft and design a visually stunning, persuasive <strong>Visitor Brochure</strong> to attract tourists and explain the critical vision behind your collection.</p>
-        <p style="margin-bottom: 0;"><strong>Length:</strong> Approximately 300 words in total.</p>
+        <p style="margin-top: 0; font-size: 14px;"><strong>Dear Visionary Curator,</strong></p>
+        <p style="font-size: 13px;">The Global Heritage Foundation values your exceptional insight into modern culture and has selected you for an extraordinary opportunity. We are funding a brand-new museum dedicated entirely to <strong>your life, memories, and values</strong>.</p>
+        <p style="margin-bottom: 0; font-size: 13px;">Your task is to draft and design a visually stunning, persuasive <strong>Visitor Brochure</strong> to attract tourists and explain the critical vision behind your collection. (Target Length: ~300 words).</p>
     </div>
 
     <!-- VOCABULARY BANK -->
@@ -339,7 +359,6 @@
         <h4>📚 Unit 5 Vocabulary Bank (Target: Use at least 7-8 words)</h4>
         <p style="font-size: 11px; margin-top: -5px; font-style: italic;">Check the box once you have used the word in your drafts below.</p>
         <div class="vocab-grid">
-            <!-- Col 1 -->
             <div>
                 <div class="vocab-item"><span class="checkbox"></span> archaeological find</div>
                 <div class="vocab-item"><span class="checkbox"></span> artifact</div>
@@ -349,7 +368,6 @@
                 <div class="vocab-item"><span class="checkbox"></span> interpretation</div>
                 <div class="vocab-item"><span class="checkbox"></span> admiration</div>
             </div>
-            <!-- Col 2 -->
             <div>
                 <div class="vocab-item"><span class="checkbox"></span> civilization</div>
                 <div class="vocab-item"><span class="checkbox"></span> dedicate</div>
@@ -359,7 +377,6 @@
                 <div class="vocab-item"><span class="checkbox"></span> acquisition</div>
                 <div class="vocab-item"><span class="checkbox"></span> loot</div>
             </div>
-            <!-- Col 3 -->
             <div>
                 <div class="vocab-item"><span class="checkbox"></span> repatriate</div>
                 <div class="vocab-item"><span class="checkbox"></span> heritage</div>
@@ -375,19 +392,21 @@
     <!-- PANEL 1: FRONT COVER -->
     <div class="panel-section">
         <div class="panel-header">Brochure Page 1</div>
-        <h2 class="panel-title">The Front Cover: Identity & Vision</h2>
-        <p style="font-size: 12px; margin-bottom: 5px;">To attract visitors, your brochure needs a powerful cover. Draft your text here:</p>
-        
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px;">Museum Name:</p>
-        <div class="writing-lines"></div>
-        
-        <p style="font-size: 12px; font-weight: bold; margin-top: 10px; margin-bottom: 2px;">Catchy Hook / Slogan:</p>
-        <div class="writing-lines"></div>
+        <div class="panel-content">
+            <h2 class="panel-title">The Front Cover: Identity & Vision</h2>
+            <p style="font-size: 12px; margin-bottom: 5px;">To attract visitors, your brochure needs a powerful cover. Draft your text here:</p>
+            
+            <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px;">Museum Name:</p>
+            <div class="writing-lines"></div>
+            
+            <p style="font-size: 12px; font-weight: bold; margin-top: 10px; margin-bottom: 2px;">Catchy Hook / Slogan:</p>
+            <div class="writing-lines"></div>
 
-        <p style="font-size: 12px; font-weight: bold; margin-top: 10px; margin-bottom: 2px;">Vision Statement (Explain WHY this museum was built in 2-3 sentences):</p>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
+            <p style="font-size: 12px; font-weight: bold; margin-top: 10px; margin-bottom: 2px;">Vision Statement (Explain WHY this museum was built in 2-3 sentences):</p>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+        </div>
     </div>
 
     <div class="page-break"></div>
@@ -398,44 +417,56 @@
     
     <span class="grammar-warning">⚠️ Grammar Requirement: You must use modals of speculation (<em>must have, might be, can't have</em>) for each item!</span>
     
-    <div class="example-box" style="margin-bottom: 15px;">
+    <div class="example-box">
         <strong>Example:</strong> <em>"This object produced loud noises. Future historians <strong>might think</strong> it was a weapon. It <strong>must have required</strong> great skill to hold, but it <strong>can't have been</strong> comfortable."</em>
     </div>
 
     <!-- Artifact 1 -->
-    <div class="panel-section clearfix">
+    <div class="panel-section">
         <div class="panel-header">Brochure Page 2</div>
-        <div class="drawing-box">Sketch<br>Artifact 1</div>
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 1 Name:</p>
-        <div class="writing-lines"></div>
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
+        <div class="panel-content artifact-layout">
+            <div class="drawing-box">Sketch<br>Artifact 1</div>
+            <div class="artifact-text">
+                <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 1 Name:</p>
+                <div class="writing-lines"></div>
+                <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Artifact 2 -->
-    <div class="panel-section clearfix">
+    <div class="panel-section">
         <div class="panel-header">Brochure Page 3</div>
-        <div class="drawing-box">Sketch<br>Artifact 2</div>
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 2 Name:</p>
-        <div class="writing-lines"></div>
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
+        <div class="panel-content artifact-layout">
+            <div class="drawing-box">Sketch<br>Artifact 2</div>
+            <div class="artifact-text">
+                <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 2 Name:</p>
+                <div class="writing-lines"></div>
+                <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Artifact 3 -->
-    <div class="panel-section clearfix">
+    <div class="panel-section">
         <div class="panel-header">Brochure Page 4</div>
-        <div class="drawing-box">Sketch<br>Artifact 3</div>
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 3 Name:</p>
-        <div class="writing-lines"></div>
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
+        <div class="panel-content artifact-layout">
+            <div class="drawing-box">Sketch<br>Artifact 3</div>
+            <div class="artifact-text">
+                <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 3 Name:</p>
+                <div class="writing-lines"></div>
+                <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+                <div class="writing-lines"></div>
+            </div>
+        </div>
     </div>
 
     <div class="page-break"></div>
@@ -443,28 +474,29 @@
     <!-- PANELS 5 & 6: BACK COVER -->
     <div class="panel-section">
         <div class="panel-header">Brochure Pages 5-6</div>
-        <h2 class="panel-title">Back Cover: Curator's Philosophy</h2>
-        <p style="font-size: 12px; margin-bottom: 10px;">This is where you show deep critical thinking. Write 2-3 detailed paragraphs answering the questions below to form your Curator's Philosophy.</p>
+        <div class="panel-content">
+            <h2 class="panel-title">Back Cover: Curator's Philosophy</h2>
+            <p style="font-size: 12px; margin-bottom: 10px;">This is where you show deep critical thinking. Write 2-3 detailed paragraphs answering the questions below to form your Curator's Philosophy.</p>
 
-        <ol style="margin-top: 0; margin-bottom: 15px; font-weight: 500; font-size: 12px; line-height: 1.5; padding-left: 20px;">
-            <li style="margin-bottom: 5px;"><strong>The Ultimate Artifact:</strong> If this museum burns down in a thousand years, and archaeologists can only save ONE of your artifacts, which one should it be? What does that single item teach the future about what the youth of the 21st century truly valued?</li>
-            <li style="margin-bottom: 5px;"><strong>Perspective & Bias:</strong> To what extent does perspective and bias influence whether a single artifact can be considered reliable evidence of the values of 21st-century youth?</li>
-            <li><strong>The Curator's Responsibility:</strong> How does the act of selecting and preserving knowledge shape representation, and what responsibilities come with deciding what future generations will know about us?</li>
-        </ol>
+            <ol style="margin-top: 0; margin-bottom: 15px; font-weight: 500; font-size: 12px; line-height: 1.5; padding-left: 20px;">
+                <li style="margin-bottom: 5px;"><strong>The Ultimate Artifact:</strong> If this museum burns down in a thousand years, and archaeologists can only save ONE of your artifacts, which one should it be? What does that single item teach the future about what the youth of the 21st century truly valued?</li>
+                <li style="margin-bottom: 5px;"><strong>Perspective & Bias:</strong> To what extent does perspective and bias influence whether a single artifact can be considered reliable evidence of the values of 21st-century youth?</li>
+                <li><strong>The Curator's Responsibility:</strong> How does the act of selecting and preserving knowledge shape representation, and what responsibilities come with deciding what future generations will know about us?</li>
+            </ol>
 
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
-        <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+            <div class="writing-lines"></div>
+        </div>
     </div>
 
     <!-- FINAL DELIVERABLE -->
@@ -475,7 +507,6 @@
         </p>
     </div>
 
-    <!-- FORCE PAGE BREAK FOR RUBRIC -->
     <div class="page-break"></div>
 
     <!-- B2 LEVEL GRADING RUBRIC -->
