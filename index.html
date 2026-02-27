@@ -20,34 +20,46 @@
             font-family: 'Georgia', serif;
         }
 
-        /* Header Section */
+        /* Header Section with Logo */
         .header {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             border-bottom: 4px double #000;
             padding-bottom: 15px;
             margin-bottom: 25px;
         }
 
-        .header h1 {
-            font-size: 32px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 5px 0;
+        .header-logo {
+            width: 150px;
+            height: auto;
         }
 
-        .header .subtitle {
-            font-size: 14px;
+        .header-text {
+            text-align: right;
+        }
+
+        .header-text h1 {
+            font-size: 28px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            margin: 0 0 5px 0;
+        }
+
+        .header-text .subtitle {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: #555;
             margin: 0;
         }
 
-        .header .quote {
+        .quote {
             font-style: italic;
-            font-size: 16px;
+            font-size: 14px;
             color: #333;
-            margin-top: 10px;
+            text-align: center;
+            margin: 15px 0;
         }
 
         /* Student Info Box */
@@ -64,8 +76,7 @@
             border: 2px solid #000;
             padding: 15px;
             background-color: #f9f9f9;
-            margin-bottom: 25px;
-            page-break-inside: avoid;
+            margin-bottom: 20px;
         }
 
         .brief-box h3 {
@@ -74,65 +85,113 @@
             font-size: 16px;
             border-bottom: 1px solid #000;
             padding-bottom: 5px;
-        }
-
-        .requirements-list {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* Step Sections */
-        .step-section {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #999;
-            border-left: 5px solid #000;
-            page-break-inside: auto; /* Changed to allow breaking if necessary */
-        }
-
-        .step-header {
-            display: flex;
-            align-items: center;
             margin-bottom: 10px;
         }
 
-        .step-number {
-            background-color: #000;
-            color: #fff;
-            width: 25px;
-            height: 25px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            font-family: sans-serif;
-            margin-right: 10px;
+        /* Vocabulary Bank */
+        .vocab-box {
+            border: 2px dashed #666;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .vocab-box h4 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 14px;
         }
 
-        .step-section h2 {
-            margin: 0;
-            font-size: 18px;
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            font-size: 11px;
+        }
+
+        .vocab-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox {
+            width: 12px;
+            height: 12px;
+            border: 1px solid #000;
+            display: inline-block;
+        }
+
+        /* Step Sections (Brochure Panels) */
+        .panel-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #000;
+            position: relative;
+        }
+
+        .panel-header {
+            background-color: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 5px 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            position: absolute;
+            top: -12px;
+            left: 10px;
+        }
+
+        .panel-title {
+            margin-top: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .writing-lines {
+            width: 100%;
+            border-bottom: 1px dotted #999;
+            height: 25px;
+            margin-bottom: 5px;
+        }
+
+        .drawing-box {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed #ccc;
+            float: left;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 10px;
+            text-align: center;
+            background-color: #fafafa;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
         }
 
         /* Callouts / Examples */
         .example-box {
-            border: 1px dashed #666;
-            padding: 10px 15px;
-            background-color: #fafafa;
+            border: 1px solid #666;
+            padding: 10px;
+            background-color: #eee;
             margin-top: 10px;
-            font-size: 13px;
-        }
-
-        .example-box h4 {
-            margin-top: 0;
-            margin-bottom: 5px;
+            font-size: 12px;
         }
 
         .grammar-warning {
             font-weight: bold;
             display: block;
             margin-top: 10px;
-            font-size: 14px;
+            font-size: 12px;
+            color: #333;
         }
 
         /* Footer */
@@ -141,7 +200,7 @@
             text-align: center;
             padding: 15px;
             margin-top: 30px;
-            page-break-inside: avoid;
+            background-color: #f0f0f0;
         }
 
         .deliverable-box h3 {
@@ -153,21 +212,28 @@
         @media print {
             body { 
                 padding: 0; 
-                margin: 15mm; 
+                margin: 10mm; 
             }
-            .brief-box, .step-section, .example-box, .deliverable-box {
+            .brief-box, .panel-section, .example-box, .deliverable-box, .vocab-box {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+            .page-break { page-break-before: always; }
+            .panel-section { page-break-inside: avoid; }
         }
     </style>
 </head>
 <body>
 
+    <!-- HEADER -->
     <div class="header">
-        <p class="subtitle">Unit 5 Final Design Project</p>
-        <h1>The Museum of You</h1>
-        <p class="quote">"Every person is a walking civilization. It is time to curate your legacy."</p>
+        <!-- Darüşşafaka Logo Placeholder -->
+        <img src="darussafaka_logo.png" alt="Darüşşafaka Eğitim Kurumları" class="header-logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x80/ffffff/006633?text=Darüşşafaka+Logo';">
+        
+        <div class="header-text">
+            <p class="subtitle">Unit 5 Final Design Project</p>
+            <h1>The Museum of You</h1>
+        </div>
     </div>
 
     <div class="student-info">
@@ -175,70 +241,153 @@
         <span>Date: ________________________</span>
     </div>
 
+    <p class="quote">"Every person is a walking civilization. It is time to curate your legacy."</p>
+
+    <!-- THE COMMISSION -->
     <div class="brief-box">
         <h3>The Commission</h3>
-        <p>The Global Heritage Foundation is funding a brand-new museum dedicated entirely to <strong>your life, memories, and values</strong>.</p>
-        <p>Your task is to design a visually stunning, persuasive <strong>Visitor Brochure</strong> to attract tourists and explain the critical vision behind your collection.</p>
-        
-        <div class="requirements-list">
-            Brochure Requirements:
-            <ul style="margin-top: 5px; margin-bottom: 0;">
-                <li>Identity & Vision Statement</li>
-                <li>3 Featured Artifacts (with photos/drawings)</li>
-                <li>Speculative Descriptions (Grammar focus)</li>
-                <li>Curator's Philosophy (Critical Thinking focus)</li>
-            </ul>
+        <p>The Global Heritage Foundation is funding a brand-new museum dedicated entirely to <strong>your life, memories, and values</strong>. Your task is to draft and design a visually stunning, persuasive <strong>Visitor Brochure</strong> to attract tourists and explain the critical vision behind your collection.</p>
+        <p style="margin-bottom: 0;"><strong>Length:</strong> Approximately 300 words in total.</p>
+    </div>
+
+    <!-- VOCABULARY BANK -->
+    <div class="vocab-box">
+        <h4>📚 Unit 5 Vocabulary Bank (Target: Use at least 7-8 words)</h4>
+        <p style="font-size: 11px; margin-top: -5px; font-style: italic;">Check the box once you have used the word in your drafts below.</p>
+        <div class="vocab-grid">
+            <!-- Col 1 -->
+            <div>
+                <div class="vocab-item"><span class="checkbox"></span> archaeological find</div>
+                <div class="vocab-item"><span class="checkbox"></span> artifact</div>
+                <div class="vocab-item"><span class="checkbox"></span> exhibit / display</div>
+                <div class="vocab-item"><span class="checkbox"></span> excavation / excavate</div>
+                <div class="vocab-item"><span class="checkbox"></span> preservation / preserve</div>
+                <div class="vocab-item"><span class="checkbox"></span> interpretation</div>
+                <div class="vocab-item"><span class="checkbox"></span> admiration</div>
+            </div>
+            <!-- Col 2 -->
+            <div>
+                <div class="vocab-item"><span class="checkbox"></span> civilization</div>
+                <div class="vocab-item"><span class="checkbox"></span> dedicate</div>
+                <div class="vocab-item"><span class="checkbox"></span> inspection</div>
+                <div class="vocab-item"><span class="checkbox"></span> justification</div>
+                <div class="vocab-item"><span class="checkbox"></span> permission</div>
+                <div class="vocab-item"><span class="checkbox"></span> acquisition</div>
+                <div class="vocab-item"><span class="checkbox"></span> loot</div>
+            </div>
+            <!-- Col 3 -->
+            <div>
+                <div class="vocab-item"><span class="checkbox"></span> repatriate</div>
+                <div class="vocab-item"><span class="checkbox"></span> heritage</div>
+                <div class="vocab-item"><span class="checkbox"></span> legacy</div>
+                <div class="vocab-item"><span class="checkbox"></span> admit / blame</div>
+                <div class="vocab-item"><span class="checkbox"></span> consequences</div>
+                <div class="vocab-item"><span class="checkbox"></span> get defensive</div>
+                <div class="vocab-item"><span class="checkbox"></span> responsibility</div>
+            </div>
         </div>
     </div>
 
-    <div class="step-section">
-        <div class="step-header">
-            <span class="step-number">1</span>
-            <h2>The Front Cover: Vision</h2>
-        </div>
-        <p>To attract visitors, your brochure needs a powerful cover. You must decide on:</p>
-        <ul>
-            <li><strong>The Name:</strong> (e.g., <em>The Gallery of Emre, The Teenage Archives</em>)</li>
-            <li><strong>The Hook:</strong> A catchy slogan to make tourists want to enter.</li>
-            <li><strong>The Vision Statement:</strong> Write 2 sentences using unit vocabulary (e.g., <em>preserve, legacy, heritage, exhibit</em>) explaining *why* this museum was built.</li>
-        </ul>
+    <!-- PANEL 1: FRONT COVER -->
+    <div class="panel-section">
+        <div class="panel-header">Brochure Page 1</div>
+        <h2 class="panel-title">The Front Cover: Identity & Vision</h2>
+        <p style="font-size: 12px; margin-bottom: 5px;">To attract visitors, your brochure needs a powerful cover. Draft your text here:</p>
+        
+        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px;">Museum Name:</p>
+        <div class="writing-lines"></div>
+        
+        <p style="font-size: 12px; font-weight: bold; margin-top: 10px; margin-bottom: 2px;">Catchy Hook / Slogan:</p>
+        <div class="writing-lines"></div>
+
+        <p style="font-size: 12px; font-weight: bold; margin-top: 10px; margin-bottom: 2px;">Vision Statement (Explain WHY this museum was built in 2-3 sentences):</p>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
     </div>
 
-    <div class="step-section">
-        <div class="step-header">
-            <span class="step-number">2</span>
-            <h2>Inside Pages: Exhibit Highlights & Grammar</h2>
-        </div>
-        <p>Select <strong>three specific items</strong> from your life (e.g., a skateboard, a concert ticket, a favorite hoodie). Include a visual for each, accompanied by a <strong>Speculative Description</strong> to entertain your visitors.</p>
-        
-        <span class="grammar-warning">⚠️ Grammar Requirement: You must guess how historians in the year 3000 will interpret each item using modals (<em>must have, might be, can't have</em>).</span>
-        
-        <div class="example-box">
-            <h4>Example Brochure Text: Exhibit 1 - The Stratocaster Guitar</h4>
-            <p><em>"This object produced loud, echoing noises. Future historians <strong>might think</strong> it was a weapon used to scare enemies. It <strong>must have required</strong> great skill to hold, but it <strong>can't have been</strong> comfortable to sleep with."</em></p>
-        </div>
+    <div class="page-break"></div>
+
+    <!-- PANELS 2, 3, 4: INSIDE PAGES -->
+    <h2 style="font-size: 18px; margin-bottom: 5px;">Brochure Pages 2, 3, and 4: Exhibit Highlights</h2>
+    <p style="font-size: 12px; margin-top: 0;">Select <strong>three specific items</strong> from your life (e.g., a skateboard, a ticket, a hoodie). For each, write a <strong>Speculative Description</strong> guessing how historians in the year 3000 will interpret it.</p>
+    
+    <span class="grammar-warning">⚠️ Grammar Requirement: You must use modals of speculation (<em>must have, might be, can't have</em>) for each item!</span>
+    
+    <div class="example-box" style="margin-bottom: 15px;">
+        <strong>Example:</strong> <em>"This object produced loud noises. Future historians <strong>might think</strong> it was a weapon. It <strong>must have required</strong> great skill to hold, but it <strong>can't have been</strong> comfortable."</em>
     </div>
 
-    <div class="step-section">
-        <div class="step-header">
-            <span class="step-number">3</span>
-            <h2>Back Cover: Curator's Philosophy</h2>
-        </div>
-        <p>This is where you show deep critical thinking. Visitors want to know the deeper meaning behind your collection. Write a final "Curator's Philosophy" paragraph for the back cover addressing these core questions:</p>
-        
-        <div class="example-box" style="border-style: solid; border-width: 2px; padding-top: 15px; padding-bottom: 15px;">
-            <ol style="margin-top: 0; margin-bottom: 0; font-weight: 500; line-height: 1.6;">
-                <li style="margin-bottom: 10px;"><strong>The Ultimate Artifact:</strong> If this museum burns down in a thousand years, and archaeologists can only save ONE of your artifacts, which one should it be? What does that single item teach the future about what the youth of the 21st century truly valued?</li>
-                <li style="margin-bottom: 10px;"><strong>Perspective & Bias:</strong> To what extent does perspective and bias influence whether a single artifact can be considered reliable evidence of the values of 21st-century youth?</li>
-                <li><strong>The Curator's Responsibility:</strong> How does the act of selecting and preserving knowledge shape representation, and what responsibilities come with deciding what future generations will know about us?</li>
-            </ol>
-        </div>
+    <!-- Artifact 1 -->
+    <div class="panel-section clearfix">
+        <div class="panel-header">Brochure Page 2</div>
+        <div class="drawing-box">Sketch<br>Artifact 1</div>
+        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 1 Name:</p>
+        <div class="writing-lines"></div>
+        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
     </div>
 
+    <!-- Artifact 2 -->
+    <div class="panel-section clearfix">
+        <div class="panel-header">Brochure Page 3</div>
+        <div class="drawing-box">Sketch<br>Artifact 2</div>
+        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 2 Name:</p>
+        <div class="writing-lines"></div>
+        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+    </div>
+
+    <!-- Artifact 3 -->
+    <div class="panel-section clearfix">
+        <div class="panel-header">Brochure Page 4</div>
+        <div class="drawing-box">Sketch<br>Artifact 3</div>
+        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 0;">Artifact 3 Name:</p>
+        <div class="writing-lines"></div>
+        <p style="font-size: 12px; font-weight: bold; margin-bottom: 2px; margin-top: 5px;">Speculative Description:</p>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PANELS 5 & 6: BACK COVER -->
+    <div class="panel-section">
+        <div class="panel-header">Brochure Pages 5-6</div>
+        <h2 class="panel-title">Back Cover: Curator's Philosophy</h2>
+        <p style="font-size: 12px; margin-bottom: 10px;">This is where you show deep critical thinking. Write 2-3 detailed paragraphs answering the questions below to form your Curator's Philosophy.</p>
+
+        <ol style="margin-top: 0; margin-bottom: 15px; font-weight: 500; font-size: 12px; line-height: 1.5; padding-left: 20px;">
+            <li style="margin-bottom: 5px;"><strong>The Ultimate Artifact:</strong> If this museum burns down in a thousand years, and archaeologists can only save ONE of your artifacts, which one should it be? What does that single item teach the future about what the youth of the 21st century truly valued?</li>
+            <li style="margin-bottom: 5px;"><strong>Perspective & Bias:</strong> To what extent does perspective and bias influence whether a single artifact can be considered reliable evidence of the values of 21st-century youth?</li>
+            <li><strong>The Curator's Responsibility:</strong> How does the act of selecting and preserving knowledge shape representation, and what responsibilities come with deciding what future generations will know about us?</li>
+        </ol>
+
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+        <div class="writing-lines"></div>
+    </div>
+
+    <!-- FINAL DELIVERABLE -->
     <div class="deliverable-box">
         <h3>Final Deliverable</h3>
-        <p style="margin-bottom: 0;">
-            Use a template tool (like Canva's "Tri-Fold Brochure" or Google Docs) to design your final product. Pay attention to layout, images, and visual appeal. Submit your digital brochure PDF to the class folder!
+        <p style="margin-bottom: 0; font-size: 14px;">
+            <strong>Time to build your museum!</strong> Take the blank A4 paper given to you by your teacher and fold it carefully into three equal sections (a tri-fold). Once folded, use this drafting guide to transfer your written text, layout your sketches, and design the final beautiful brochure for <em>The Museum of You</em>.
         </p>
     </div>
 
