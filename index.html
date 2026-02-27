@@ -270,6 +270,27 @@
             font-size: 24px;
         }
 
+        /* Deduction Styles for Grading */
+        .deduction-box {
+            margin-top: 10px;
+            background-color: #fafafa;
+            border: 1px dashed #999;
+            padding: 8px;
+            font-size: 11px;
+        }
+
+        .circle-box {
+            display: inline-block;
+            border: 1px solid #000;
+            border-radius: 50%;
+            padding: 2px 4px;
+            margin-right: 5px;
+            margin-bottom: 4px;
+            font-weight: bold;
+            font-family: monospace;
+            background-color: #fff;
+        }
+
         /* Print Overrides */
         @media print {
             body { 
@@ -470,28 +491,48 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Language & Vocabulary -->
+                <!-- Grammar -->
                 <tr>
-                    <td><strong>Language & Vocabulary<br><br>(Max 40 points)</strong></td>
+                    <td><strong>Grammar<br><br>(Max 20 pts)</strong></td>
                     <td>
-                        <ul style="margin: 0; padding-left: 20px;">
-                            <li style="margin-bottom: 5px;"><strong>Grammar (20 pts):</strong> Accurate and highly effective use of the target grammar (Modals of Speculation: <em>must have, might be, can't have</em>, etc.) across the artifact descriptions. Demonstrates a solid command of B2 grammatical structures with only minor, non-impeding errors.</li>
-                            <li><strong>Vocabulary (20 pts):</strong> Successfully integrates <strong>at least 7-8 target words</strong> from the Unit 5 vocabulary bank appropriately in context. Demonstrates a strong lexical range suited for a formal/informative museum brochure.</li>
-                        </ul>
+                        <strong>Expectations:</strong> Accurate and highly effective use of the target grammar (Modals of Speculation: <em>must have, might be, can't have</em>, etc.) across the artifact descriptions. Demonstrates a solid command of B2 grammatical structures.<br>
+                        <div class="deduction-box">
+                            <strong>Deductions (Circle if applied):</strong><br>
+                            <span class="circle-box">-5</span> <span class="circle-box">-10</span> Missing or incorrect use of Modals of Speculation.<br>
+                            <span class="circle-box">-2</span> <span class="circle-box">-5</span> <span class="circle-box">-10</span> Frequent basic grammar errors (tenses, spelling) impeding meaning.
+                        </div>
                     </td>
                     <td style="vertical-align: middle;">
-                        <div class="score-box">/ 40</div>
+                        <div class="score-box">/ 20</div>
+                    </td>
+                </tr>
+
+                <!-- Vocabulary -->
+                <tr>
+                    <td><strong>Vocabulary<br><br>(Max 20 pts)</strong></td>
+                    <td>
+                        <strong>Expectations:</strong> Successfully integrates <strong>at least 7-8 target words</strong> from the Unit 5 vocabulary bank appropriately in context. Demonstrates a strong lexical range suited for a formal/informative museum brochure.<br>
+                        <div class="deduction-box">
+                            <strong>Deductions (Circle if applied):</strong><br>
+                            <span class="circle-box">-2</span> <span class="circle-box">-4</span> <span class="circle-box">-6</span> Missing required target words (less than 7 used).<br>
+                            <span class="circle-box">-2</span> <span class="circle-box">-5</span> Incorrect usage or unnatural context of the target vocabulary.
+                        </div>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <div class="score-box">/ 20</div>
                     </td>
                 </tr>
 
                 <!-- Content & Critical Thinking -->
                 <tr>
-                    <td><strong>Content & Critical Thinking<br><br>(Max 30 points)</strong></td>
+                    <td><strong>Content & Critical Thinking<br><br>(Max 30 pts)</strong></td>
                     <td>
-                        <ul style="margin: 0; padding-left: 20px;">
-                            <li style="margin-bottom: 5px;"><strong>Depth of Analysis (15 pts):</strong> The <em>Curator's Philosophy</em> section shows profound critical thinking. It directly and thoughtfully answers the TOK-style questions regarding bias, perspective, and the responsibility of historical representation.</li>
-                            <li><strong>Creativity & Speculation (15 pts):</strong> The artifact descriptions are highly creative, offering logical yet imaginative future perspectives. The overall vision of the museum is cohesive, engaging, and clear.</li>
-                        </ul>
+                        <strong>Expectations:</strong> The <em>Curator's Philosophy</em> section shows profound critical thinking. It directly and thoughtfully answers the questions regarding bias, perspective, and the responsibility of historical representation.<br>
+                        <div class="deduction-box">
+                            <strong>Deductions (Circle if applied):</strong><br>
+                            <span class="circle-box">-5</span> <span class="circle-box">-10</span> <span class="circle-box">-15</span> Philosophy section lacks depth, is missing, or ignores the prompt questions.<br>
+                            <span class="circle-box">-5</span> <span class="circle-box">-10</span> Speculative descriptions lack creativity or do not fit the "future archaeologist" theme.
+                        </div>
                     </td>
                     <td style="vertical-align: middle;">
                         <div class="score-box">/ 30</div>
@@ -500,12 +541,15 @@
 
                 <!-- Task Achievement & Formatting -->
                 <tr>
-                    <td><strong>Task Achievement & Formatting<br><br>(Max 30 points)</strong></td>
+                    <td><strong>Task Achievement & Format<br><br>(Max 30 pts)</strong></td>
                     <td>
-                        <ul style="margin: 0; padding-left: 20px;">
-                            <li style="margin-bottom: 5px;"><strong>Completion (15 pts):</strong> All required elements are present: Identity/Vision statement, 3 distinct artifacts with sketches/descriptions, and the final philosophy section. Reaches the target length of ~300 words.</li>
-                            <li><strong>Design & Presentation (15 pts):</strong> The final physical deliverable successfully utilizes the folded A4 tri-fold format. The layout is well-organized, visually appealing, and designed to attract a visitor (acting as a true brochure).</li>
-                        </ul>
+                        <strong>Expectations:</strong> All required elements are present (3 artifacts + images, cover, philosophy). Reaches the target length of ~300 words. The final physical deliverable successfully utilizes the folded A4 tri-fold format beautifully.<br>
+                        <div class="deduction-box">
+                            <strong>Deductions (Circle if applied):</strong><br>
+                            <span class="circle-box">-5</span> <span class="circle-box">-10</span> Missing required sections, artifacts, or visual sketches.<br>
+                            <span class="circle-box">-5</span> <span class="circle-box">-10</span> Did not use the requested tri-fold brochure format or layout is extremely messy.<br>
+                            <span class="circle-box">-5</span> Significantly under the required word count.
+                        </div>
                     </td>
                     <td style="vertical-align: middle;">
                         <div class="score-box">/ 30</div>
@@ -520,9 +564,9 @@
             <div class="total-score-box">/ 100</div>
         </div>
         
-        <div style="margin-top: 30px; border-top: 1px dashed #ccc; padding-top: 10px;">
+        <div style="margin-top: 20px; border-top: 1px dashed #ccc; padding-top: 10px;">
             <strong>Teacher Comments:</strong>
-            <div style="height: 100px;"></div>
+            <div style="height: 80px;"></div>
         </div>
     </div>
 
